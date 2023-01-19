@@ -1,22 +1,24 @@
-import { headers } from "next/headers"
+"use client"
+
+import React from "react"
 import Picture from "./Picture"
-import getImages from "@/lib/getImages"
-import sortImagesByRows from "@/utils/sortImagesByRows"
-import style from "./galerie.module.css"
+import style from "./Galerie.module.css"
+import { GallerieContext } from "../providers/GallerieProvider"
+import Loading from "../loading"
 
 export default function Galerie() {
-	const headersList = headers()
-	const images = getImages()
+	const { images, error, isLoading } = React.useContext(GallerieContext)
+
+	if (isLoading) return <Loading />
+	if (error) return <div className="text-white">Une erreur est survenue !</div>
 
 	return (
-		<>
-			<section className={style.grille}>
-				{sortImagesByRows(images, 6).map((images, index) => (
-					<div key={index} className={style.colonne}>
-						{images.map((image, index) => image && <Picture key={index} image={image} />)}
-					</div>
-				))}
-			</section>
-		</>
+		<section className={style.grille}>
+			{images.map((images, index) => (
+				<div key={index} className={style.colonne}>
+					{images.map((image, index) => image && <Picture key={index} image={image} />)}
+				</div>
+			))}
+		</section>
 	)
 }
