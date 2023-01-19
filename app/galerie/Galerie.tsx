@@ -23,8 +23,8 @@ export default async function Galerie() {
 									key={index}
 									className={style.image}
 									src={image.path}
-									width={400}
-									height={400}
+									width={256}
+									height={256}
 									quality={50}
 									alt={image.name}
 								/>

@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<Sidebar />
 				<main>
 					<Navbar />
-					<Ban />
+					{/* <Ban /> */}
 					{children}
 				</main>
 				<UpButton />

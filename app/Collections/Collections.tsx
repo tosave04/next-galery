@@ -23,6 +23,7 @@ export default async function Collections() {
 						className={`${style.image} group-hover:opacity-100`}
 						src={thumb}
 						fill={true}
+						sizes="30%"
 						quality={50}
 						alt={folder}
 					/>
