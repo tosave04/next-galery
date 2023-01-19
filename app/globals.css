@@ -3,5 +3,13 @@
 @tailwind utilities;
 
 html {
-	@apply bg-neutral-800;
+	@apply relative bg-slate-900;
+}
+
+body {
+	@apply md:pl-24 lg:pl-72 md:pr-4 lg:pr-8 2xl:pr-24;
+}
+
+main {
+	@apply container mx-auto flex flex-col gap-8;
 }

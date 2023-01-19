@@ -1,18 +1,20 @@
 import React from "react"
-import styles from "./page.module.css"
 import Collections from "./Collections/Collections"
 import Galerie from "./Galerie/Galerie"
 import Loading from "./loading"
 
 export default function Home() {
 	return (
-		<main className={styles.main}>
+		<>
 			<React.Suspense fallback={<Loading />}>
 				{/* @ts-expect-error Server Component */}
 				<Collections />
 			</React.Suspense>
-			<Galerie />
-		</main>
+			<React.Suspense fallback={<Loading />}>
+				{/* @ts-expect-error Server Component */}
+				<Galerie />
+			</React.Suspense>
+		</>
 	)
 }
 

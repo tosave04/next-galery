@@ -1,22 +1,35 @@
-"use client"
-
-import React from "react"
-import Picture from "./Picture"
+import Image from "next/image"
+import getAllFiles from "@/lib/getAllFiles"
+import sortImagesByRows from "@/utils/sortImagesByRows"
 import style from "./Galerie.module.css"
-import { GallerieContext } from "../providers/GallerieProvider"
-import Loading from "../loading"
+import type { ImageType } from "@/types/ImageType"
 
-export default function Galerie() {
-	const { images, error, isLoading } = React.useContext(GallerieContext)
+const getImages = async () => {
+	const files = getAllFiles("images") as ImageType[]
+	return sortImagesByRows(files, 6)
+}
 
-	if (isLoading) return <Loading />
-	if (error) return <div className="text-white">Une erreur est survenue !</div>
+export default async function Galerie() {
+	const images = await getImages()
 
 	return (
 		<section className={style.grille}>
 			{images.map((images, index) => (
 				<div key={index} className={style.colonne}>
-					{images.map((image, index) => image && <Picture key={index} image={image} />)}
+					{images.map(
+						(image, index) =>
+							image && (
+								<Image
+									key={index}
+									className={style.image}
+									src={image.path}
+									width={400}
+									height={400}
+									quality={50}
+									alt={image.name}
+								/>
+							)
+					)}
 				</div>
 			))}
 		</section>

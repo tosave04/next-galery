@@ -1,0 +1,19 @@
+.collections {
+	@apply grid grid-cols-3 lg:grid-cols-5 gap-2 lg:gap-4;
+}
+
+.card {
+	@apply relative h-20 hover:-translate-y-0.5 transition rounded-xl overflow-hidden;
+}
+
+.card > .image {
+	@apply object-cover opacity-70 transition-opacity;
+}
+
+.card > .title {
+	@apply absolute inset-0 flex text-white;
+}
+
+.card > .title > span {
+	@apply m-auto text-xl;
+}
