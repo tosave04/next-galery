@@ -26,6 +26,7 @@ export default async function Collections() {
 						sizes="30%"
 						quality={50}
 						alt={folder}
+						priority={true}
 					/>
 					<div className={style.title}>
 						<span>{folder}</span>

@@ -5,6 +5,7 @@ const nextConfig = {
 	},
 	images: {
 		domains: ["localhost"],
+		minimumCacheTTL: 6000000,
 	},
 }
 
