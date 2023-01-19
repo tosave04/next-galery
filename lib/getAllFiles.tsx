@@ -12,7 +12,9 @@ export default function getAllFiles(folder: string): ImageType[] | false {
 		.readdirSync(folderName)
 		.map((folder) => {
 			const files = fs.readdirSync(`${folderName}/${folder}`)
-			return files.map((file) => {
+			return files
+			.filter((file) => file.endsWith(".jpg") || file.endsWith(".png"))
+			.map((file) => {
 				return {
 					id: index++,
 					folder: folder,

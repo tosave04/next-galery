@@ -10,7 +10,7 @@ const getImages = async () => {
 }
 
 export default async function Galerie() {
-	const images = await getImages()
+	const images = getRandomElements(await getImages(), 20)
 
 	return (
 		<section className={style.grille}>
@@ -34,4 +34,19 @@ export default async function Galerie() {
 			))}
 		</section>
 	)
+}
+
+// Fonction qui retourne des éléments aléatoires d'un tableau
+// https://stackoverflow.com/questions/19269545/how-to-get-a-number-of-random-elements-from-an-array
+function getRandomElements<T>(arr: T[], n: number): T[] {
+	const result = new Array(n)
+	let len = arr.length
+	const taken = new Array(len)
+	if (n > len) throw new RangeError("getRandomElements: more elements taken than available")
+	while (n--) {
+		const x = Math.floor(Math.random() * len)
+		result[n] = arr[x in taken ? taken[x] : x]
+		taken[x] = --len in taken ? taken[len] : len
+	}
+	return result
 }
