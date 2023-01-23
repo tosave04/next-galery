@@ -6,8 +6,16 @@
 	@apply relative h-20 hover:-translate-y-0.5 transition rounded-xl overflow-hidden;
 }
 
+.active {
+	@apply -translate-y-0.5 outline outline-sky-300;
+}
+
 .card > .image {
 	@apply object-cover opacity-70 transition-opacity;
+}
+
+.active > .image {
+	@apply !opacity-100;
 }
 
 .card > .title {

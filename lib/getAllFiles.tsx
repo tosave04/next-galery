@@ -13,15 +13,15 @@ export default function getAllFiles(folder: string): ImageType[] | false {
 		.map((folder) => {
 			const files = fs.readdirSync(`${folderName}/${folder}`)
 			return files
-			.filter((file) => file.endsWith(".jpg") || file.endsWith(".png"))
-			.map((file) => {
-				return {
-					id: index++,
-					folder: folder,
-					name: file,
-					path: `${publicFolder}/${folder}/${file}`,
-				}
-			})
+				.filter((file) => file.match(/\.(jpg|jpeg|png|gif)$/i) !== null)
+				.map((file) => {
+					return {
+						id: index++,
+						folder: folder,
+						name: file,
+						path: `${publicFolder}/${folder}/${file}`,
+					}
+				})
 		})
 		.flat()
 

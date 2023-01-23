@@ -5,7 +5,7 @@ const nextConfig = {
 	},
 	images: {
 		domains: ["localhost", "images.tosave.ovh"],
-		minimumCacheTTL: 6000000,
+		minimumCacheTTL: 3600 * 24 * 365 * 10,
 	},
 }
 

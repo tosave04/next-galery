@@ -1,6 +1,6 @@
 import React from "react"
-import Collections from "./Collections/Collections"
-import Galerie from "./Galerie/Galerie"
+import Collections from "./common/Collections"
+import Galerie from "./common/Galerie"
 import Loading from "./loading"
 
 export default function Home() {
@@ -17,8 +17,3 @@ export default function Home() {
 		</>
 	)
 }
-
-const Cache = () => {}
-
-// Si on utilise <Suspense> pour attendre le chargement d'un composant
-// On peut corriger l'erreur "Server Component" en utilisant {/* @ts-expect-error Server Component */} ou <Cache>

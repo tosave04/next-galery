@@ -1,9 +1,10 @@
+import React from "react"
 import "./globals.css"
 // import { Providers } from "./providers"
-import Ban from "./RootLayout/Ban"
-import Navbar from "./RootLayout/Navbar"
-import Sidebar from "./RootLayout/Sidebar"
-import UpButton from "./RootLayout/UpButton"
+import Ban from "./layout/Ban"
+import Navbar from "./layout/Navbar"
+import Sidebar from "./layout/Sidebar"
+import UpButton from "./layout/UpButton"
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
@@ -23,3 +24,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		</html>
 	)
 }
+
+// Si on utilise <Suspense> pour attendre le chargement d'un composant
+// On peut corriger l'erreur "Server Component" en utilisant {/* @ts-expect-error Server Component */} ou <Cache>
