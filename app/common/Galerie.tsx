@@ -7,7 +7,10 @@ import type { ImageType } from "@/types/ImageType"
 
 const getImages = async (folder?: string) => {
 	const files = getAllFiles("images") as ImageType[]
-	return sortImagesByRows(folder ? files.filter((file) => file.folder === folder) : getRandomElements(files, 50), 6)
+	return sortImagesByRows(
+		folder ? files.filter((file) => file.folder === decodeURI(folder)) : getRandomElements(files, 50),
+		6
+	)
 }
 
 export default async function Galerie({ categorie }: { categorie?: string }) {
