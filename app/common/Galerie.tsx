@@ -9,7 +9,7 @@ const getImages = async (folder?: string) => {
 	const files = getAllFiles("images") as ImageType[]
 	return sortImagesByRows(
 		folder ? files.filter((file) => file.folder === decodeURI(folder)) : getRandomElements(files, 50),
-		6
+		5
 	)
 }
 

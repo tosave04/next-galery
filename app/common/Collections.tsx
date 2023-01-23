@@ -22,7 +22,7 @@ export default async function Collections({ categorie }: { categorie?: string })
 			{folders.map(({ folder, thumb, path }, index) => (
 				<Link
 					key={index}
-					className={`group ${style.card} ${categorie === folder ? style.active : ""}`}
+					className={`group ${style.card} ${decodeURI(categorie as string) === folder ? style.active : ""}`}
 					href={`${path}`}
 				>
 					<Image
