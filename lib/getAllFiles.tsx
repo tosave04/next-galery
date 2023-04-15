@@ -1,7 +1,8 @@
 import fs from "fs"
-import type { ImageType } from "@/types/ImageType"
+import type { File } from "@/types/File"
 
-export default function getAllFiles(folder: string): ImageType[] | false {
+export default function getAllFiles(): File[] | false {
+	const folder = process.env.NEXT_PUBLIC_FOLDER as string
 	const folderName = `./public/${folder}`
 	const publicFolder = `${process.env.NEXT_PUBLIC_URL}/${folder}`
 

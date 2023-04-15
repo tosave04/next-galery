@@ -1,19 +1,11 @@
-import React from "react"
-import Collections from "../../common/Collections"
 import Galerie from "../../common/Galerie"
-import Loading from "../../loading"
+import type { File } from "@/types/File"
 
-export default function Categorie({ params }: { params: { folder: string } }) {
-	return (
-		<>
-			<React.Suspense fallback={<Loading />}>
-				{/* @ts-expect-error Server Component */}
-				<Collections categorie={params.folder} />
-			</React.Suspense>
-			<React.Suspense fallback={<Loading />}>
-				{/* @ts-expect-error Server Component */}
-				<Galerie categorie={params.folder} />
-			</React.Suspense>
-		</>
-	)
+export default async function Categorie({ params }: { params: { folder: string } }) {
+	// On récupère dynamiquement la liste des fichiers
+	const images: File[] = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/images?cat=${params.folder}`, {
+		cache: "no-store",
+	}).then((res) => res.json())
+
+	return <Galerie images={images} />
 }

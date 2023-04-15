@@ -1,19 +1,13 @@
-import React from "react"
-import Collections from "./common/Collections"
 import Galerie from "./common/Galerie"
-import Loading from "./loading"
+import type { File } from "@/types/File"
 
-export default function Home() {
-	return (
-		<>
-			<React.Suspense fallback={<Loading />}>
-				{/* @ts-expect-error Server Component */}
-				<Collections />
-			</React.Suspense>
-			<React.Suspense fallback={<Loading />}>
-				{/* @ts-expect-error Server Component */}
-				<Galerie />
-			</React.Suspense>
-		</>
-	)
+export default async function Home() {
+	// return <pre>{JSON.stringify(folders, null, 1)}</pre>
+
+	// On récupère dynamiquement la liste des fichiers
+	const images: File[] = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/random`, {
+		cache: "no-store",
+	}).then((res) => res.json())
+
+	return <Galerie images={images} />
 }
