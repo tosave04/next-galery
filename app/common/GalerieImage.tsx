@@ -13,6 +13,7 @@ export default function GalerieImage({ image }: { image: File }) {
 			<Image
 				className={style.image}
 				src={image.path}
+				blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA"
 				width={256}
 				height={256}
 				quality={60}

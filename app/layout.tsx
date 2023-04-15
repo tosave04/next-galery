@@ -8,6 +8,14 @@ import UpButton from "./layout/UpButton"
 import type { Folder } from "@/types/Folder"
 import Loading from "./loading"
 
+export const metadata = {
+	title: "Create Next App",
+	description: "Galerie d'images",
+	icons: {
+		icon: "/favicon.ico",
+	},
+}
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
 	// On récupère dynamiquement la liste des dossiers
 	const folders: Folder[] = await fetch(process.env.NEXT_PUBLIC_URL + "/api/folders", { cache: "no-store" }).then(
@@ -16,7 +24,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
 	return (
 		<html lang="fr">
-			<head />
 			<body>
 				<Sidebar />
 				<main>
