@@ -20,7 +20,7 @@ export default function CollectionsThumb({ folder }: { folder: string }) {
 				src={infos.thumb}
 				fill={true}
 				sizes="30%"
-				quality={50}
+				quality={60}
 				alt={infos.folder}
 				priority={true}
 			/>

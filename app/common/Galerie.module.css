@@ -1,7 +1,7 @@
 .grille {
-	@apply relative grid grid-cols-2 lg:grid-cols-5 gap-2 lg:gap-4;
+	@apply relative grid grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-2 lg:gap-4;
 }
 
 .image {
-	@apply w-full rounded-xl;
+	@apply w-full object-cover object-right-top rounded-xl;
 }
