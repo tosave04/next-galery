@@ -4,7 +4,7 @@ const nextConfig = {
 		appDir: true,
 	},
 	images: {
-		domains: ["localhost", "images.tosave.ovh"],
+		domains: ["localhost", "images.tosave.ovh", "galerie.aifusion.fr"],
 		minimumCacheTTL: 3600 * 24 * 365 * 10,
 	},
 }
